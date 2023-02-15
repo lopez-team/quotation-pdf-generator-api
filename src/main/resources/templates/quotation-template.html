@@ -1,11 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title th:text="${company.name}">Cotización</title>
-  <link rel="stylesheet" type="text/css" media="all" href="css/export_pdf.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="/static/css/quotation-template-styles.css" />
 </head>
+
 <body>
 
+  <div class="title-container">
+    <p class="title">COTIZACIÓN</p>
+    <div class="boss-data">
+      <p>PEPITO PEREZ</p>
+      <p>example@gmail.com</p>
+      <p>Profesión</p>
+      <p>Teléfono</p>
+    </div>
+  </div>
+
+  <div class="client-data-container">
+    <div class="client-data">
+      <p>DATOS DEL CLIENTE:</p>
+      <p>Nombre</p>
+      <p>Identificacion</p>
+      <p>Teléfono</p>
+    </div>
+    <div class="quotation-date-container">
+      <p>Cotización</p>
+      <p>Fecha</p>
+    </div>
+  </div>
+
+  <table>
+    <tr>
+      <th>Cantidad</th>
+      <th>Unidad</th>
+      <th>Descripcion</th>
+      <th>Costo por unidad</th>
+      <th>Total</th>
+    </tr>
+    <tr th:each="">
+      <td th:text=""></td>
+      <td th:text=""></td>
+      <td th:text=""></td>
+      <td th:text=""></td>
+      <td th:text=""></td>
+    </tr>
+  </table>
+
+  <div>
+    <table>
+      <tr>
+        <td>Subtotal</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Iva</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <footer>
+    <p>Terminos y Condiciones</p>
+    <p></p>
+  </footer>
+
 </body>
+
 </html>
