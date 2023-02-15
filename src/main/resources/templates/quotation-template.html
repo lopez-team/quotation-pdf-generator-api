@@ -10,66 +10,91 @@
 <body>
 
   <div class="title-container">
-    <p class="title">COTIZACIÓN</p>
+
+    <h1 class="title">COTIZACIÓN</h1>
+
     <div class="boss-data">
-      <p>PEPITO PEREZ</p>
+
+      <p class="name-boss">PEPITO PEREZ</p>
       <p>example@gmail.com</p>
       <p>Profesión</p>
       <p>Teléfono</p>
+
     </div>
+
   </div>
 
   <div class="client-data-container">
+
     <div class="client-data">
       <p>DATOS DEL CLIENTE:</p>
-      <p>Nombre</p>
-      <p>Identificacion</p>
-      <p>Teléfono</p>
+      <p>Juanito Jaramillo</p>
+      <p>CC.39785245</p>
+      <p>Cel:2949478843</p>
     </div>
+
     <div class="quotation-date-container">
-      <p>Cotización</p>
-      <p>Fecha</p>
+
+      <table>
+
+        <tr>
+          <td>Cotización</td>
+          <td>#132234</td>
+        </tr>
+        <tr>
+          <td>Fecha</td>
+          <td>12/02/2023</td>
+        </tr>
+
+      </table>
     </div>
   </div>
 
-  <table>
-    <tr>
+  <table class="table-quotation">
+
+    <tr class="header-table">
       <th>Cantidad</th>
       <th>Unidad</th>
       <th>Descripcion</th>
       <th>Costo por unidad</th>
       <th>Total</th>
     </tr>
+
     <tr th:each="">
-      <td th:text=""></td>
-      <td th:text=""></td>
-      <td th:text=""></td>
-      <td th:text=""></td>
-      <td th:text=""></td>
+      <td th:text="">2</td>
+      <td th:text="">m2</td>
+      <td th:text="">JHDCKFBWSJCFNWDC</td>
+      <td th:text="">3000</td>
+      <td th:text="">3848275</td>
     </tr>
+
   </table>
 
-  <div>
-    <table>
+  <div class="table-container">
+    <table class="table-total">
+
       <tr>
         <td>Subtotal</td>
-        <td></td>
+        <td>83783456</td>
       </tr>
       <tr>
         <td>Iva</td>
-        <td></td>
+        <td>19</td>
       </tr>
-      <tr>
+      <tr class="row-total">
         <td>Total</td>
-        <td></td>
+        <td>7236847265</td>
       </tr>
+      
     </table>
   </div>
 
-  <footer>
-    <p>Terminos y Condiciones</p>
-    <p></p>
-  </footer>
+  <footer class="tc-container">
+    <h3>Terminos y Condiciones</h3>
+    <div>
+      <p>El valor incluye todos los materiales de primera calidad.....</p>
+    </div>
+    </ooter>
 
 </body>
 

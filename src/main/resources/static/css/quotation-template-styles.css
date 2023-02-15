@@ -1,23 +1,85 @@
 body{
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .title-container{
     display: flex;
+    margin-left: 10%;
     justify-content: space-between;
-    border: 1px solid blue;
     width: 80%;
 }
 
 .title {
-    font-size: 60px;
+    color:rgba(0, 0, 0, 0.826);
+    font-size: 50px;
 }
 
 .boss-data{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.826);
+    border-radius: 5px;
     color: aliceblue;
     text-align: center;
     width: 30%;
+}
+.name-boss{
+    font-size: 30px ;
+}
+
+.client-data-container{
+    width: 80%;
+    justify-content: space-between;
+    display: flex;
+    margin-left: 10%;
+}
+
+.table-quotation{
+    border: gray 1px solid;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.table-quotation tr:nth-child(even){
+    background-color: lightgrey;
+}
+
+tr,td,th{
+    padding: 20px;
+    text-align: center;
+}
+
+.header-table{
+    background-color: rgb(0, 166, 255);
+    padding: 20px;
+    color: beige;
+}
+
+.table-container{
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: right;
+}
+
+.table-total{
+    width: 20%;
+    border-spacing: 0;
+}
+
+.row-total{
+    background-color: rgb(0, 166, 255);
+    padding: 20px;
+    color: beige;
+}
+
+.tc-container{
+    width: 80%;
+    margin-left: 10%;
+}
+
+h3{
+    background-color: rgba(0, 0, 0, 0.826);
+    color: beige;
 }
