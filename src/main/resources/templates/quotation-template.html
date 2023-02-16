@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title >Cotización</title>
-  <link rel="stylesheet" type="text/css" media="all" href="/static/css/quotation-template-styles.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="css/quotation-template-styles.css" />
 </head>
 
 <body>
@@ -61,8 +61,8 @@
     </tr>
 
     <tr th:each="item: ${items}">
-      <td th:text="${item.cantidad}"></td>
-      <td th:text="${item.unit}"></td>
+      <td th:text="${item.quantity}"></td>
+      <td th:text="${item.measurementUnit}"></td>
       <td th:text="${item.description}"></td>
       <td th:text="${item.price}"></td>
       <td th:text="${item.total}"></td>
