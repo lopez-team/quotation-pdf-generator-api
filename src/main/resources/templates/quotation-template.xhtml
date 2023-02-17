@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title >Cotización</title>
-  <link rel="stylesheet" type="text/css" media="all" href="css/quotation-template-styles.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/static/css/quotation-template-styles.css" />
 </head>
 
 <body>
@@ -29,8 +29,8 @@
     <div class="client-data">
       <p>DATOS DEL CLIENTE:</p>
       <p th:text="${client.name}"></p>
-      <p th:text="Identificación: + ${client.id}"></p>
-      <p th:text="Telefono: + ${client.phoneNumber}"></p>
+      <p th:text="'Identificación:' + ${client.id}"></p>
+      <p th:text="'Telefono:' + ${client.phoneNumber}"></p>
     </div>
 
     <div class="quotation-date-container">
@@ -85,7 +85,7 @@
         <td>Total</td>
         <td th:text="${quotation.grandTotal}"></td>
       </tr>
-      
+
     </table>
   </div>
 
