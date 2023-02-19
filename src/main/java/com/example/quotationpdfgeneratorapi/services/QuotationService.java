@@ -22,5 +22,7 @@ public class QuotationService {
     if (quotationInRepo.isPresent()) {
       log.info("That quotation already exists in database");
     }
+
+    return null;
   }
 }
