@@ -3,9 +3,10 @@ package com.example.quotationpdfgeneratorapi.controllers;
 import com.example.quotationpdfgeneratorapi.dtos.QuotationRequestDTO;
 import com.example.quotationpdfgeneratorapi.services.QuotationService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,10 @@ public class QuotationController {
     this.quotationService = quotationService;
   }
 
-  @GetMapping("/pdf")
+  @PostMapping("/pdf")
   public ResponseEntity<byte[]> getQuotationPdf(@Valid @RequestBody QuotationRequestDTO quotation) {
-    return new ResponseEntity<>(quotationService.getQuotationPdf(quotation), HttpStatus.OK);
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Content-Type", "application/pdf");
+    return new ResponseEntity<>(quotationService.getQuotationPdf(quotation), headers, HttpStatus.OK);
   }
 }

@@ -1,6 +1,7 @@
 package com.example.quotationpdfgeneratorapi.dtos;
 
 import jakarta.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,10 @@ public class QuotationDTO {
 
   @NotNull(message = "The list of items cannot be null")
   private List<ItemDTO> items;
+
+  private BigDecimal iva;
+  private BigDecimal subTotal;
+  private BigDecimal grandTotal;
 
   private String termsAndConditions;
 }

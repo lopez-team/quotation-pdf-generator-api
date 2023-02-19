@@ -1,9 +1,8 @@
 package com.example.quotationpdfgeneratorapi.dtos;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
-@AllArgsConstructor @NoArgsConstructor
+@AllArgsConstructor
 public class ClientDTO extends PersonDTO{
 
 }

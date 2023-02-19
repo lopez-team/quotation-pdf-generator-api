@@ -11,16 +11,17 @@ import java.io.InputStreamReader;
 import java.security.SecureRandom;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.TemplateEngine;
 
-@Slf4j
+@Slf4j @Configuration
 public class PdfConfig {
 
   private SecureRandom random = new SecureRandom();
   private ObjectMapper mapper = new ObjectMapper(createJsonFactory());
   private TemplateEngine thymeleaf = new TemplateEngine();
 
-  private String loadResourceString (String resourcePath) {
+  public String loadResourceString (String resourcePath) {
 
     InputStream stream = PdfConfig.class.getClassLoader().getResourceAsStream(resourcePath);
 

@@ -1,28 +1,66 @@
 package com.example.quotationpdfgeneratorapi.services;
 
+import com.example.quotationpdfgeneratorapi.config.PdfConfig;
+import com.example.quotationpdfgeneratorapi.dtos.ItemDTO;
+import com.example.quotationpdfgeneratorapi.dtos.QuotationDTO;
 import com.example.quotationpdfgeneratorapi.dtos.QuotationRequestDTO;
-import com.example.quotationpdfgeneratorapi.entities.Quotation;
-import com.example.quotationpdfgeneratorapi.repositories.QuotationRepository;
-import java.util.Optional;
+import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.exceptions.TemplateInputException;
 
 @Service @Slf4j
 public class QuotationService {
 
-  QuotationRepository quotationRepository;
+  TemplateEngine thymeleaf;
 
-  public QuotationService(QuotationRepository quotationRepository) {
-    this.quotationRepository = quotationRepository;
+  public QuotationService() {
+    thymeleaf = new TemplateEngine();
   }
 
   public byte[] getQuotationPdf(QuotationRequestDTO quotation) {
 
-    Optional<Quotation> quotationInRepo = quotationRepository.findById(quotation.getQuotation().getId());
-    if (quotationInRepo.isPresent()) {
-      log.info("That quotation already exists in database");
-    }
+    Context ctx = new Context();
+    ctx.setVariable("boss", quotation.getBoss());
+    ctx.setVariable("client", quotation.getClient());
+    processQuotationPrices(quotation.getQuotation());
+    ctx.setVariable("quotation", quotation.getQuotation());
+    ctx.setVariable("items", quotation.getQuotation().getItems());
 
-    return null;
+    String template = new PdfConfig().loadResourceString("templates/quotation-template.xhtml");
+
+    String html = thymeleaf.process(template, ctx);
+
+    try(ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+      PdfRendererBuilder builder = new PdfRendererBuilder();
+      builder.withHtmlContent(html, QuotationService.class.getResource("/root.htm").toExternalForm());
+      builder.useFastMode();
+      builder.toStream(os);
+      builder.run();
+      return os.toByteArray();
+    } catch (IOException e) {
+      log.info("Unable to generate the pdf", e);
+      return null;
+    }
+  }
+
+  private void processQuotationPrices(QuotationDTO quotationDTO) {
+    quotationDTO.getItems().forEach(x-> x.setTotal(x.getPrice().multiply(BigDecimal.valueOf(x.getQuantity()))));
+
+    BigDecimal subtotal = quotationDTO.getItems().stream()
+        .map(ItemDTO::getTotal)
+        .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+    quotationDTO.setSubTotal(subtotal);
+
+    BigDecimal iva = subtotal.multiply(BigDecimal.valueOf(0.18));
+    quotationDTO.setIva(iva);
+    quotationDTO.setGrandTotal(subtotal.add(iva));
+
   }
 }
