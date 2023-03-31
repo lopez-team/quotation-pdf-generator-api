@@ -1,62 +1,61 @@
 body{
-    align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .pdf-container{
-    width: 2480px;
-    height: 3508px;
+    width: 1240px;
+    height: 1754px;
 }
 
 .title-container{
-    width: 2480px;
+    width: 1240px;
     /* justify-content: space-between; */
     display: inline-block;
 }
 
 .title {
-    width: 1000px;
-    margin-left: 248px;
+    width: 500px;
+    /*margin-left: 124px;*/
     color: #010101;
     font-size: 50px;
 }
 
 .boss-data{
-    margin-left: 1840px;
+    margin-left: 380px;
     background-color: #010101;
     border-radius: 5px;
     color: aliceblue;
     text-align: center;
-    width: 890px;
-    height: 240px;
-    font-size: 25px;
+    width: 222px;
+    height: 60px;
+    font-size: 14px;
 }
 .name-boss{
-    font-size: 30px ;
+    font-size: 15px ;
 }
 
 .client-data{
-    width: 2480px;
+    width: 1240px;
     display: inline-block;
     font-size: 25px;
-    margin-left: 248px;
+    /*margin-left: 124px;*/
 }
 
 .table-date{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .table-date td{
-    width: 827px;
+    width: 413px;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
 }
 
 .table-quotation{
     border: #808080 1px solid;
-    margin-left: 248px;
-    width: 2480px;
+    /*margin-left: 124px;*/
+    width: 1240px;
 }
 
 .table-quotation tr:nth-child(even){
@@ -64,7 +63,7 @@ body{
 }
 
 tr,td,th{
-    padding: 40px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -76,30 +75,28 @@ tr,td,th{
 
 .table-container{
     font-size: 25px;
-    width: 2480px;
-    margin-left: 248px;
-    display: flex;
-    justify-content: right;
+    width: 1240px;
+    margin-left: 410px;
 }
 
 .table-total{
-    width: 496px;
+    width: 248px;
     border-spacing: 0;
 }
 
 .row-total{
     background-color: #00a6ff;
-    padding: 20px;
+    padding: 10px;
     color: #f5f5dc;
 }
 
 .tc-container{
-    width: 2480px;
-    margin-left: 248px;
+    width: 1240px;
+    /*margin-left: 124px;*/
 }
 
 h3{
-    background-color: #000000d3;
+    background-color: #000000;
     color: #f5f5dc;
     font-size: 30px;
 }

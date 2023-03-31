@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Cotización</title>
-  <link rel="stylesheet" type="text/css" media="all" href="/css/quotation-template-styles.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="static/css/quotation-template-styles.css" />
 </head>
 
 <body>
@@ -27,17 +27,17 @@
     <table class="table-date">
       <tr>
         <td>DATOS DEL CLIENTE</td>
-        <td th:if="${quotation.id}" th:text="Cotizacion: + ${quotation.id}"></td>
+        <td th:text="${quotation.id}"></td>
       </tr>
       <tr>
         <td th:text="${client.name}"></td>
-        <td th:if="${quotation.date}" th:text="Fecha: + ${quotation.date}"></td>
+        <td th:text="${quotation.date}"></td>
       </tr>
       <tr>
-        <td th:text="Identificación: + ${client.id}"></td>
+        <td th:text="${client.id}"></td>
       </tr>
       <tr>
-        <td th:text="Telefono: + ${client.tdhoneNumber}"></td>
+        <td th:text="${client.phoneNumber}"></td>
       </tr>
     </table>
   </div>
