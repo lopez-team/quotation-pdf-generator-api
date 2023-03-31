@@ -12,15 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.exceptions.TemplateInputException;
 
 @Service @Slf4j
 public class QuotationService {
 
   TemplateEngine thymeleaf;
+  PdfConfig pdfConfig;
 
-  public QuotationService() {
+  public QuotationService(PdfConfig pdfConfig) {
     thymeleaf = new TemplateEngine();
+    this.pdfConfig = pdfConfig;
   }
 
   public byte[] getQuotationPdf(QuotationRequestDTO quotation) {
@@ -32,7 +33,7 @@ public class QuotationService {
     ctx.setVariable("quotation", quotation.getQuotation());
     ctx.setVariable("items", quotation.getQuotation().getItems());
 
-    String template = new PdfConfig().loadResourceString("templates/quotation-template.xhtml");
+    String template = pdfConfig.loadResourceString("templates/quotation-template.xhtml");
 
     String html = thymeleaf.process(template, ctx);
 

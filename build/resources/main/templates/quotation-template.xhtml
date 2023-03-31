@@ -60,7 +60,7 @@
       <th>Total</th>
     </tr>
 
-    <tr th:each="item: ${items}">
+    <tr th:each="item: ${quotation.items}">
       <td th:text="${item.quantity}"></td>
       <td th:text="${item.measurementUnit}"></td>
       <td th:text="${item.description}"></td>

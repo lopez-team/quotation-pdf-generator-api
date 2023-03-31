@@ -1,5 +1,7 @@
 body{
     display: block;
+    /*TODO: Todo lo que está comentado debemos cambiarlo de alguna forma para lograr los mismos
+       resultados pero sin hacer uso de flex, porque la librería para renderizar PDF no lo soporta.*/
     /*flex-direction: column;*/
     /*align-items: center;*/
     font-family: Georgia, 'Times New Roman', Times, serif;
