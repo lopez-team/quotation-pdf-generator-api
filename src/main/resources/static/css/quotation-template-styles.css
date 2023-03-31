@@ -9,14 +9,6 @@ body{
 }
 
 .title-container{
-    /*display: flex;*/
-    margin-left: 10%;
-    /*justify-content: space-between;*/
-    width: 80%;
-}
-
-.title {
-    color:#000000;
     width: 2480px;
     /* justify-content: space-between; */
     display: inline-block;
