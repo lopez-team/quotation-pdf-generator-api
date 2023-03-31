@@ -3,99 +3,90 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title >Cotización</title>
-  <link rel="stylesheet" type="text/css" media="all" href="static/css/quotation-template-styles.css" />
+  <title>Cotización</title>
+  <link rel="stylesheet" type="text/css" media="all" href="/css/quotation-template-styles.css" />
 </head>
 
 <body>
+  <div class="pdf-container">
+    <div class="title-container">
 
-  <div class="title-container">
+      <h1 class="title">COTIZACIÓN</h1>
 
-    <h1 class="title">COTIZACIÓN</h1>
+      <div class="boss-data">
 
-    <div class="boss-data">
+        <p class="name-boss" th:text="${boss.name}"></p>
+        <p th:text="${boss.email}"></p>
+        <p th:text="${boss.profession}"></p>
+        <p th:text="${boss.phoneNumber}"></p>
 
-      <p class="name-boss" th:text="${boss.name}"></p>
-      <p th:text="${boss.email}"></p>
-      <p th:text="${boss.profession}"></p>
-      <p th:text="${boss.phoneNumber}"></p>
-
+      </div>
     </div>
-
-  </div>
-
-  <div class="client-data-container">
 
     <div class="client-data">
-      <p>DATOS DEL CLIENTE:</p>
-      <p th:text="${client.name}"></p>
-      <p th:text="'Identificación:' + ${client.id}"></p>
-      <p th:text="'Telefono:' + ${client.phoneNumber}"></p>
-    </div>
-
-    <div class="quotation-date-container">
-
-      <table>
-
+      <table class="table-date">
         <tr>
-          <td th:text="Cotizacion"></td>
-          <td th:text="${quotation.id}"></td>
+          <td>DATOS DEL CLIENTE</td>
+          <td th:if="${quotation.id}" th:text="Cotizacion: + ${quotation.id}"></td>
         </tr>
         <tr>
-<!--          <td th:if="Fecha + ${quotation.date}"></td>-->
-          <td th:text="${quotation.date}"></td>
+          <td th:text="${client.name}"></td>
+          <td th:if="${quotation.date}" th:text="Fecha: + ${quotation.date}"></td>
+        </tr>
+        <tr>
+          <td th:text="Identificación: + ${client.id}"></td>
+        </tr>
+        <tr>
+          <td th:text="Telefono: + ${client.tdhoneNumber}"></td>
+        </tr>
+      </table>
+    </div>
+
+    <table class="table-quotation">
+
+      <tr class="header-table">
+        <th>Cantidad</th>
+        <th>Unidad</th>
+        <th>Descripcion</th>
+        <th>Costo por unidad</th>
+        <th>Total</th>
+      </tr>
+
+      <tr th:each="item: ${items}">
+        <td th:text="${item.quantity}"></td>
+        <td th:text="${item.measurementUnit}"></td>
+        <td th:text="${item.description}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.total}"></td>
+      </tr>
+
+    </table>
+
+    <div class="table-container">
+      <table class="table-total">
+        <tr>
+          <td>Subtotal</td>
+          <td th:text="${quotation.subtotal}"></td>
+        </tr>
+        <tr>
+          <td>Iva</td>
+          <td th:text="${quotation.iva}"></td>
+        </tr>
+        <tr class="row-total">
+          <td>Total</td>
+          <td th:text="${quotation.grandTotal}"></td>
         </tr>
 
       </table>
     </div>
-  </div>
 
-  <table class="table-quotation" >
-
-    <tr class="header-table" >
-      <th>Cantidad</th>
-      <th>Unidad</th>
-      <th>Descripcion</th>
-      <th>Costo por unidad</th>
-      <th>Total</th>
-    </tr>
-
-    <tr th:each="item: ${items}">
-      <td th:text="${item.quantity}"></td>
-      <td th:text="${item.measurementUnit}"></td>
-      <td th:text="${item.description}"></td>
-      <td th:text="${item.price}"></td>
-      <td th:text="${item.total}"></td>
-    </tr>
-
-  </table>
-
-  <div class="table-container">
-    <table class="table-total">
-
-      <tr>
-        <td>Subtotal</td>
-        <td th:text="${quotation.subtotal}"></td>
-      </tr>
-      <tr>
-        <td>Iva</td>
-        <td th:text="${quotation.iva}"></td>
-      </tr>
-      <tr class="row-total" >
-        <td>Total</td>
-        <td th:text="${quotation.grandTotal}"></td>
-      </tr>
-
-    </table>
-  </div>
-
-  <footer class="tc-container">
-    <h3>Terminos y Condiciones</h3>
-    <div>
-      <p th:text="${quotation.termsAndConditions}"></p>
-    </div>
+    <footer class="tc-container">
+      <h3>Terminos y Condiciones</h3>
+      <div>
+        <p th:text="${quotation.termsAndConditions}"></p>
+      </div>
     </footer>
-
+  </div>
 </body>
 
 </html>

@@ -1,10 +1,11 @@
 body{
-    display: block;
-    /*TODO: Todo lo que está comentado debemos cambiarlo de alguna forma para lograr los mismos
-       resultados pero sin hacer uso de flex, porque la librería para renderizar PDF no lo soporta.*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
+    align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.pdf-container{
+    width: 2480px;
+    height: 3508px;
 }
 
 .title-container{
@@ -16,72 +17,97 @@ body{
 
 .title {
     color:#000000;
+    width: 2480px;
+    /* justify-content: space-between; */
+    display: inline-block;
+}
+
+.title {
+    width: 1000px;
+    margin-left: 248px;
+    color: #010101;
     font-size: 50px;
 }
 
 .boss-data{
-    background-color: #000000;
+    margin-left: 1840px;
+    background-color: #010101;
     border-radius: 5px;
     color: aliceblue;
     text-align: center;
-    width: 30%;
+    width: 890px;
+    height: 240px;
+    font-size: 25px;
 }
 .name-boss{
     font-size: 30px ;
 }
 
-.client-data-container{
-    width: 80%;
-    /*justify-content: space-between;*/
-    /*display: flex;*/
-    margin-left: 10%;
+.client-data{
+    width: 2480px;
+    display: inline-block;
+    font-size: 25px;
+    margin-left: 248px;
+}
+
+.table-date{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.table-date td{
+    width: 827px;
+    text-align: left;
+    padding: 10px;
 }
 
 .table-quotation{
-    border: gray 1px solid;
-    margin-left: 10%;
-    width: 80%;
+    border: #808080 1px solid;
+    margin-left: 248px;
+    width: 2480px;
 }
 
 .table-quotation tr:nth-child(even){
-    background-color: lightgrey;
+    background-color: #d3d3d3;
 }
 
 tr,td,th{
-    padding: 20px;
+    padding: 40px;
     text-align: center;
 }
 
 .header-table{
-    background-color: #00A6FF;
-    padding: 20px;
-    color: beige;
+    background-color: #0084ff;
+    color: #f5f5dc;
+    font-size: 25px;
 }
 
 .table-container{
-    width: 80%;
-    margin-left: 10%;
-    /*display: flex;*/
-    /*justify-content: right;*/
+    font-size: 25px;
+    width: 2480px;
+    margin-left: 248px;
+    display: flex;
+    justify-content: right;
 }
 
 .table-total{
-    width: 20%;
+    width: 496px;
     border-spacing: 0;
 }
 
 .row-total{
-    background-color: #00A6FF;
+    background-color: #00a6ff;
     padding: 20px;
-    color: beige;
+    color: #f5f5dc;
 }
 
 .tc-container{
-    width: 80%;
-    margin-left: 10%;
+    width: 2480px;
+    margin-left: 248px;
 }
 
 h3{
-    background-color: #000000;
-    color: beige;
+    background-color: #000000d3;
+    color: #f5f5dc;
+    font-size: 30px;
 }
